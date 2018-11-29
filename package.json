@@ -1,6 +1,6 @@
 {
   "name": "@avimesa/infra-api-amqp",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Node.js SDK for the Avimesa Infrastructure API using AMQP (0-9-1)",
   "main": "index.js",
   "scripts": {
