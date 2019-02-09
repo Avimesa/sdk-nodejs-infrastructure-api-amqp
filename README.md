@@ -93,10 +93,10 @@ The callback signature contains:
 ##### Callback
 
 ```
-addGroup(groupId, function(err, authKey){ ... })
+addGroup(groupId, function(err, authKey, acctId){ ... })
 ```
 
-Adds a Group to the Device Cloud.  If successful, a generated Authentication Key is provided in the response.    
+Adds a Group to the Device Cloud.  If successful, a generated Authentication Key and Accounting ID is provided in the response.    
 
 Parameters:
 
@@ -107,6 +107,7 @@ The callback signature contains:
 
 - `err` (boolean) - true if error, false otherwise
 - `authKey` (string) - the 128bit authentication key (32 characters, a-f0-9)
+- `acctId` (Number) - the unsigned 32 bit accounting ID
 
 Notes:
 
