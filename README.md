@@ -214,4 +214,37 @@ The callback signature contains:
 ```
 
 
+
+[Top](#toc)<br>
+<a id="2.20-api-reference"></a>
+### acctRecordConsume
+
+##### Summary
+
+Consumes the records from the accounting record queue.
+
+##### Callback
+
+```
+acctRecordListener(function(err, msg, ackCb){ ... })
+```
+
+The callback signature contains:
+
+- `err` (boolean) - true if error, false otherwise
+- `msg` (object) - JSON record with `gid` (Group ID (Linux)), `did` (Device ID), `dts` (Linux upload time), `msg` (message count for transaction), and `jif` (jiffy count for transaction) in the given format (for example):
+
+```
+{
+   "gid": 413400036,
+   "did": “20010db80000000002c9bffffe1c7393”,
+   "dts": 1526533115,
+   "msg": 8,
+   “jif”: 450
+}
+```
+
+- `ackCb` (callback) - callback with signature like `function(ok){...}` used to indicate message is OK to ACK
+
+
 [Top](#toc)<br>
