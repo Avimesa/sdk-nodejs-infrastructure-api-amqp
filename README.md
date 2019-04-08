@@ -28,19 +28,30 @@ Install the package:
 npm install @avimesa/infra-api-amqp
 ```
 
-Update or add your .env file in the project root (or use the setConnParams function at runtime)
+Configure your API credentials using the following options:
+
+### 1.1 Set Credentials using setConnParams
+
+Use the `setConnParams` function before accessing the API:
+
 ```
-# RMQ Server Hostname
-RMQ_HOSTNAME=XXXXXX.avimesa.com
+const infraApi = require('@avimesa/infra-api-amqp');
 
-# RMQ Server Port
-RMQ_PORT=5671
+infraApi.setConnParams({
+    apiKey: '<** Enter API Key **>',
+    apiPassword: '<** Enter API Password **>',
+});
+```
 
-# RMQ Group ID / Vhost
-RMQ_GROUP_ID= ** TODO **
+### 1.2 Load Credentials using .env file
 
-# RMQ Authentication Key
-RMQ_AUTH_KEY= ** TODO **
+update or add your .env file in the project root:
+```
+# API Key
+API_KEY= <** Enter API Key **>
+
+# API Password
+API_PASSWORD= <** Enter API Password **>,
 ```
 
 Load the package:
@@ -78,11 +89,20 @@ Set the connection parameters for the AMQP connection
 const infraApi = require('@avimesa/infra-api-amqp');
 
 infraApi.setConnParams({
-    hostname: 'XXXXXXXXX.avimesa.com',
-    username: <** ENTER API Key **>,
-    password: <** ENTER API Password **>,
-    vhost: TODO',
+    apiKey: '<** Enter API Key **>',
+    apiPassword: '<** Enter API Password **>',
+});
+```
+
+Note, you can override connection parameters as well:
+
+```
+infraApi.setConnParams({
+    apiKey: '<** Enter API Key **>',
+    apiPassword: '<** Enter API Password **>',
+    hostname: 'rmqserv001.avimesa.com',
     port: 5671
+    vhost: '<** By default, 'infrastructure' **>',
 });
 ```
 

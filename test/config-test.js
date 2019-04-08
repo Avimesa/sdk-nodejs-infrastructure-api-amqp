@@ -17,8 +17,8 @@ describe('config', function() {
 				hostname: 'hello',
 				port: 1234,
 				vhost: 'goodbye',
-				username: 'jackie',
-				password: 'chan',
+				apiKey: 'jackie',
+				apiPassword: 'chan',
 			};
 			config.setConnParams(params1);
 
@@ -28,8 +28,8 @@ describe('config', function() {
 			assert.equal(params2.hostname, params1.hostname);
 			assert.equal(params2.port, params1.port);
 			assert.equal(params2.vhost, params1.vhost);
-			assert.equal(params2.username, params1.username);
-			assert.equal(params2.password, params1.password);
+			assert.equal(params2.username, params1.apiKey);
+			assert.equal(params2.password, params1.apiPassword);
 		});
 	});
 });
